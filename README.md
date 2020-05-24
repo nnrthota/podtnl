@@ -1,5 +1,5 @@
 
-Access Pod Online using PODTNL
+Access Pod Online using Podtnl
 ==========
 [![wercker status](https://app.wercker.com/status/11cd0df4d8d696f68146c8014eb042c3/s/master "wercker status")](https://app.wercker.com/project/byKey/11cd0df4d8d696f68146c8014eb042c3)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -17,14 +17,14 @@ Access Pod Online using PODTNL
  - No need to worry about accessing your application during development, forgot about the following buzz words 
    [ingress, controller, loadbalancer, Public IP, etc]
 
-**podtnl** uses two concepts: 
+**Podtnl** uses two concepts: 
 > - Port Forward
 > - Tunnel
 
 ## Installation
-**podtnl** is available in [homebrew](http://brew.sh/)
+**Podtnl** is available in [homebrew](http://brew.sh/)
 ```shell
-$ brew tap nnrthota/podtnl
+$ brew tap narendranathreddythota/podtnl
 $ brew install podtnl
 ```
 **Build from Source**
@@ -36,6 +36,7 @@ $ cp podtnl /var/local/bin
 ## Usage:
 #### Available Flage
 ```shell
+  version        : Output Podtnl Version
   provider       : Input Tunnel Provider
   providerPath   : Input Tunnel Provider Path
   podname        : Input Pod Name
@@ -80,6 +81,7 @@ Expected Output:
 ➜  ~ podtnl --help
 
  Usage: podtnl := Please Provide necessary Arguments..
+  -v    prints current podtnl version
   -auth
         Need to secure the exposed pod with Basic Auth? (default true)
   -namespace string
@@ -125,8 +127,10 @@ $ podtnl -provider ngrok -providerPath /usr/local/bin/ngrok -podname couchdb0-64
 ```shell
 E0524 00:42:00.609685   24854 portforward.go:400] an error occurred forwarding 5989 -> 5989: error forwarding port 5989 to pod 2f82fec0fb08efb22d2efcf02beb02b89a73398dd82c9a3e82103346c3f074f3, uid : exit status 1: 2020/05/23 20:42:00 socat[30542] E connect(5, AF=2 127.0.0.1:5989, 16): Connection refused
 ```
+[Thank you gonnel](https://github.com/afdalwahyu/gonnel)
+
 Licensing
 =========
-**podtnl** is licensed under the Apache License, Version 2.0. See
+**Podtnl** is licensed under the Apache License, Version 2.0. See
 [LICENSE](https://github.com/narendranathreddythota/podtnl/blob/master/LISCENSE) for the full
 license text.
