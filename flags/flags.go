@@ -19,9 +19,12 @@ package flags
 
 import (
 	"flag"
+
+	"github.com/narendranathreddythota/podtnl/tunnel/types"
 )
 
 var provider string
+var protocol string
 var providerPath string
 var podname string
 var auth bool
@@ -33,6 +36,7 @@ func init() {
 	flag.StringVar(&provider, "provider", "ngrok", "Provides Tunnel provider")
 	flag.StringVar(&providerPath, "providerPath", "/usr/local/bin/ngrok", "Tunnel provider Path")
 	flag.StringVar(&podname, "podname", "", "Pod Name")
+	flag.StringVar(&protocol, "protocol", types.Protocol(types.HTTP).ToString(), "Type of Protocol HTTP or TCP")
 	flag.StringVar(&ns, "namespace", "default", "Namespace where pod is running..")
 	flag.IntVar(&podport, "podport", 0, "Pod Port")
 	flag.BoolVar(&auth, "auth", true, "Need to secure the exposed pod with Basic Auth?")
@@ -43,6 +47,15 @@ func GetTunnelProvider() string {
 
 	return provider
 }
+
+func GetSelectedProtocol() string {
+
+	if protocol == types.Protocol(types.TCP).ToString() {
+		return types.Protocol(types.TCP).ToString()
+	}
+	return protocol
+}
+
 func GetTunnelProviderPath() string {
 
 	return providerPath

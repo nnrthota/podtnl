@@ -1,5 +1,5 @@
 
-Access Pod Online using podtnl
+Access Pod Online using PODTNL
 ==========
 [![wercker status](https://app.wercker.com/status/11cd0df4d8d696f68146c8014eb042c3/s/master "wercker status")](https://app.wercker.com/project/byKey/11cd0df4d8d696f68146c8014eb042c3)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)

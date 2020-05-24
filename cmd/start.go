@@ -30,7 +30,6 @@ import (
 	"github.com/narendranathreddythota/podtnl/portforward"
 	"github.com/narendranathreddythota/podtnl/tunnel"
 	providers "github.com/narendranathreddythota/podtnl/tunnel/providers"
-	types "github.com/narendranathreddythota/podtnl/tunnel/types"
 )
 
 func runPortForward(podName string, exposedPort int) {
@@ -52,9 +51,10 @@ func init() {
 
 func openTunnels(provider providers.ITunnelProvider) []*providers.Tunnel {
 	auth := sysFlags.GetAuth()
+	proto := sysFlags.GetSelectedProtocol()
 	tunnels := []*providers.Tunnel{
 		{
-			Proto:     types.Protocol(types.HTTP).ToString(),
+			Proto:     proto,
 			Name:      "mytunnel",
 			LocalIP:   "127.0.0.1",
 			LocalPort: strconv.Itoa(int(sysFlags.GetPodPort())),
