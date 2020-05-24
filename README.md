@@ -34,7 +34,17 @@ $ cp podtnl /var/local/bin
 ```
 
 ## Usage:
-### HTTP
+#### Available Flage
+```shell
+  provider       : Input Tunnel Provider
+  providerPath   : Input Tunnel Provider Path
+  podname        : Input Pod Name
+  protocol       : Input Type of Protocol
+  namespace      : Input Namespace
+  podport        : Input Pod Port
+  auth           : Need Authentication ? Applicable for HTTP
+```
+#### HTTP
 ```shell
 $ podtnl -provider ngrok -podname couchdb0-64d95cccc5-5phqz -podport 5984
 
@@ -54,7 +64,7 @@ Handling connection for 5984
 ^C[WARN] Shutting down all open tunnels..
 [DBUG] Closing tunnel in https://fa8df289.ngrok.io
 ```
-### TCP
+#### TCP
 ```shell
 $ podtnl -provider ngrok -podname orderer1-7cb4b7565-nv95k -podport 7050 -protocol tcp
 
@@ -68,21 +78,22 @@ Expected Output:
 ```
 ```shell
 ➜  ~ podtnl --help
-Usage of podtnl:
-  -Authentication
-    	Need to secure the exposed pod with Basic Auth? (default true)
+
+ Usage: podtnl := Please Provide necessary Arguments..
+  -auth
+        Need to secure the exposed pod with Basic Auth? (default true)
   -namespace string
-    	Namespace where pod is running.. (default "default")
+         Please Provide Namespace where pod is running.. (default "default")
   -podname string
-    	Pod Name
+        Please Provide Pod Name
   -podport int
-    	Pod Port
+        Please Provide Pod Port
   -protocol string
-        Type of Protocol HTTP or TCP (default "http")
+        Please Provide Type of Protocol HTTP or TCP (default "http")
   -provider string
-    	Provides Tunnel provider (default "ngrok")
+        Input Tunnel Provider (default "ngrok")
   -providerPath string
-    	Tunnel provider Path (default "/usr/local/bin/ngrok")
+        Please Provide Tunnel Provider Path (default "/usr/local/bin/ngrok")
 ```
 ## Note:
 If the following works perfectly 
