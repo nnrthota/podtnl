@@ -1,10 +1,10 @@
 require "language/go"
 
-class podtnl < Formula
-  desc "An interactive terminal based UI application for tracking cryptocurrencies"
+class Podtnl < Formula
+  desc "Expose your pod to Online easily from any kubernetes clusters without creating a kubernetes service."
   homepage "https://podtnl.sh"
   url "https://github.com/narendranathreddythota/podtnl/archive/1.0.tar.gz"
-  sha256 "3b2b039da68c92d597ae4a6a89aab58d9741132efd514bbf5cf1a1a151b16213"
+  sha256 "8f06c335467622419b643ee4f5df54513256c086162f0a83bd7004deae715b6e"
   revision 1
   head "https://github.com/narendranathreddythota/podtnl.git"
   depends_on "go" => :build
@@ -12,13 +12,14 @@ class podtnl < Formula
   def install
     ENV["GOPATH"] = buildpath
     path = buildpath/"src/github.com/narendranathreddythota/podtnl"
-    system "go", "get", "-u", "github.com/narendranathreddythota/podtnl"
+    path.install Dir["*"]
     cd path do
       system "go", "build", "-o", "#{bin}/podtnl"
     end
   end
 
   test do
-    system "true"
+    assert_match version.to_s, shell_output("#{bin}/podtnl", "-v")
   end
+
 end 
