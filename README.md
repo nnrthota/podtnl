@@ -34,6 +34,7 @@ $ cp podtnl /var/local/bin
 ```
 
 ## Usage:
+### HTTP
 ```shell
 $ podtnl -provider ngrok -podname couchdb0-64d95cccc5-5phqz -podport 5984
 
@@ -52,7 +53,18 @@ Handling connection for 5984
 
 ^C[WARN] Shutting down all open tunnels..
 [DBUG] Closing tunnel in https://fa8df289.ngrok.io
-2020/05/24 00:23:21 interrupt
+```
+### TCP
+```shell
+$ podtnl -provider ngrok -podname orderer1-7cb4b7565-nv95k -podport 7050 -protocol tcp
+
+Expected Output:
+[INFO] ...Tunnel provider ngrok
+[INFO] NGROK is Ready
+[INFO] mytunnel is created and Live: -> tcp://0.tcp.ngrok.io:10467
+
+^C[WARN] Shutting down all open tunnels..
+[DBUG] Closing tunnel in tcp://0.tcp.ngrok.io:10467
 ```
 ```shell
 ➜  ~ podtnl --help
@@ -65,6 +77,8 @@ Usage of podtnl:
     	Pod Name
   -podport int
     	Pod Port
+  -protocol string
+        Type of Protocol HTTP or TCP (default "http")
   -provider string
     	Provides Tunnel provider (default "ngrok")
   -providerPath string

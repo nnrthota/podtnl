@@ -19,6 +19,8 @@ package flags
 
 import (
 	"flag"
+	"fmt"
+	"os"
 
 	"github.com/narendranathreddythota/podtnl/tunnel/types"
 )
@@ -31,49 +33,84 @@ var auth bool
 var ns string
 var podport int
 
-func init() {
+// MyUsage Special instructions
+func MyUsage() {
+	fmt.Printf(" Expose your pod to Online easily from any kubernetes clusters without creating a kubernetes service.\n")
+	fmt.Printf(`
+  Available Flage:
 
-	flag.StringVar(&provider, "provider", "ngrok", "Provides Tunnel provider")
-	flag.StringVar(&providerPath, "providerPath", "/usr/local/bin/ngrok", "Tunnel provider Path")
-	flag.StringVar(&podname, "podname", "", "Pod Name")
-	flag.StringVar(&protocol, "protocol", types.Protocol(types.HTTP).ToString(), "Type of Protocol HTTP or TCP")
-	flag.StringVar(&ns, "namespace", "default", "Namespace where pod is running..")
-	flag.IntVar(&podport, "podport", 0, "Pod Port")
+  provider       : Input Tunnel Provider
+  providerPath   : Input Tunnel Provider Path
+  podname        : Input Pod Name
+  protocol       : Input Type of Protocol
+  namespace      : Input Namespace
+  podport        : Input Pod Port
+  auth           : Need Authentication ? Applicable for HTTP
+	`)
+	fmt.Printf("\n Usage: %s Please Provide necessary Arguments..\n", os.Args[0])
+	flag.PrintDefaults()
+}
+
+func init() {
+	flag.StringVar(&provider, "provider", "ngrok", "Input Tunnel Provider")
+	flag.StringVar(&providerPath, "providerPath", "/usr/local/bin/ngrok", "Please Provide Tunnel Provider Path")
+	flag.StringVar(&podname, "podname", "", "Please Provide Pod Name")
+	flag.StringVar(&protocol, "protocol", types.Protocol(types.HTTP).ToString(), "Please Provide Type of Protocol HTTP or TCP")
+	flag.StringVar(&ns, "namespace", "default", " Please Provide Namespace where pod is running..")
+	flag.IntVar(&podport, "podport", 0, "Please Provide Pod Port")
 	flag.BoolVar(&auth, "auth", true, "Need to secure the exposed pod with Basic Auth?")
 	flag.Parse()
 }
 
-func GetTunnelProvider() string {
+func veryFlagInput() {
+	if len(os.Args) < 2 {
+		flag.Usage = MyUsage
+		flag.Usage()
+		os.Exit(1)
+	}
+}
 
+//GetTunnelProvider return tunnel provider
+func GetTunnelProvider() string {
+	veryFlagInput()
 	return provider
 }
 
+//GetSelectedProtocol return protocol
 func GetSelectedProtocol() string {
-
+	veryFlagInput()
 	if protocol == types.Protocol(types.TCP).ToString() {
 		return types.Protocol(types.TCP).ToString()
 	}
 	return protocol
 }
 
+// GetTunnelProviderPath return selected provider path
 func GetTunnelProviderPath() string {
-
+	veryFlagInput()
 	return providerPath
 }
-func GetPodName() string {
 
+// GetPodName return provided podname
+func GetPodName() string {
+	veryFlagInput()
 	return podname
 }
-func GetAuth() bool {
 
+// GetAuth return provided auth status
+func GetAuth() bool {
+	veryFlagInput()
 	return auth
 }
-func GetPodPort() int {
 
+// GetPodPort return provided port number
+func GetPodPort() int {
+	veryFlagInput()
 	return podport
 }
 
+// GetNamespace return provided namespace
 func GetNamespace() string {
-
+	veryFlagInput()
 	return ns
 }
