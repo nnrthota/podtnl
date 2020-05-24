@@ -138,7 +138,7 @@ func (np *NgrokProvider) End() error {
 	return np.Client.runningCmd.Process.Kill()
 }
 
-// OpenManyTunnels open multiple tunnels simultaniously
+// OpenManyTunnels open multiple tunnels simultaneously
 func (np *NgrokProvider) OpenManyTunnels(tunnels []*tunnelProvider.Tunnel) error {
 	wg := &sync.WaitGroup{}
 	// api request post to /api/tunnels
