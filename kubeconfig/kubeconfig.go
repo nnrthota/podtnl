@@ -27,6 +27,7 @@ import (
 	"k8s.io/client-go/tools/clientcmd"
 )
 
+//GetKubeConfig collect kubeconfig from ~/.kube/config
 func GetKubeConfig() (*restclient.Config, error) {
 	var kubeconfig *string
 	if home := homeDir(); home != "" {

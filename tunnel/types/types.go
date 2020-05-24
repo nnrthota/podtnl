@@ -17,8 +17,13 @@ package main
 
 package types
 
+// TunnelStatus that ngrok support
 type TunnelStatus uint
+
+// Protocol protocol type
 type Protocol uint
+
+// IsCreated tunnel status
 type IsCreated bool
 
 // Protocol that ngrok support
@@ -28,12 +33,14 @@ const (
 	TLS
 )
 
+// Protocols that ngrok support
 var Protocols = [...]string{
 	"http",
 	"tcp",
 	"tls",
 }
 
+// TunnelStatus that ngrok support
 const (
 	Ready TunnelStatus = 0 + iota
 	Pending

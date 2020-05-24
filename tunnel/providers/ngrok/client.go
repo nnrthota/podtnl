@@ -14,6 +14,7 @@ import (
 	tunnelProv "github.com/narendranathreddythota/podtnl/tunnel/providers"
 )
 
+//Options Ngrok options
 type Options struct {
 	SubDomain  string // Sub domain config if you're using premium plan
 	AuthToken  string // Auth token to authenticate client
@@ -22,15 +23,18 @@ type Options struct {
 	BinaryPath string // Binary file that will be running
 	LogBinary  bool   // You can watch binary log or not
 }
+
+//NGROKClient client object
 type NGROKClient struct {
 	Options    *Options             // Options that will be used for command
 	Tunnel     []*tunnelProv.Tunnel // List of all tunnel
 	API        string               // Client server for API communication
-	LogApi     bool                 // Log response from API or not
+	LogAPI     bool                 // Log response from API or not
 	commands   []string             // result of commands that will be used to run binary
 	runningCmd *exec.Cmd            // Pointer of command that running
 }
 
+// NewClient returns client pointer
 func NewClient(opt Options) (*NGROKClient, error) {
 	if opt.BinaryPath == "" {
 		return nil, errors.New("binary path required")

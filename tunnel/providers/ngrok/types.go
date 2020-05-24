@@ -1,5 +1,6 @@
 package ngrok
 
+// TunnelResponse NGROK resp after creating tunnel
 type TunnelResponse struct {
 	Name      string `json:"Name"`
 	URI       string `json:"uri"`

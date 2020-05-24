@@ -4,6 +4,7 @@ import (
 	"github.com/narendranathreddythota/podtnl/tunnel/types"
 )
 
+// Tunnel object
 type Tunnel struct {
 	Name          string             // Name of the tunnel
 	Proto         string             // TCP, HTTP,
@@ -16,6 +17,7 @@ type Tunnel struct {
 	IsCreated     types.IsCreated    // Is Tunnel Created
 }
 
+// ITunnelProvider go interface
 type ITunnelProvider interface {
 	Start() error
 	End() error

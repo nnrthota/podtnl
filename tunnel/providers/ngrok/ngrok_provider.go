@@ -15,10 +15,12 @@ import (
 	tunnelProvider "github.com/narendranathreddythota/podtnl/tunnel/providers"
 )
 
+// NgrokProvider object
 type NgrokProvider struct {
 	Client NGROKClient
 }
 
+//NewNgrokProvider return provider
 func NewNgrokProvider(binaryPath string) tunnelProvider.ITunnelProvider {
 	client, _ := NewClient(Options{
 		BinaryPath: binaryPath,
@@ -28,6 +30,7 @@ func NewNgrokProvider(binaryPath string) tunnelProvider.ITunnelProvider {
 	}
 }
 
+//Start NGROK server
 func (np *NgrokProvider) Start() error {
 	done := make(chan bool)
 	go np.Client.StartServer(done)
@@ -35,6 +38,7 @@ func (np *NgrokProvider) Start() error {
 	return nil
 }
 
+//CreateTunnel open tunnel using NGROK Server
 func (np *NgrokProvider) CreateTunnel(t *tunnelProvider.Tunnel) error {
 
 	for attempt := uint(0); attempt <= maxRetries; attempt++ {
@@ -80,7 +84,7 @@ func (np *NgrokProvider) CreateTunnel(t *tunnelProvider.Tunnel) error {
 			golog.Info(t.Name + " is created and Live: -> " + t.RemoteAddress)
 			return nil
 		}()
-		if np.Client.LogApi && err != nil {
+		if np.Client.LogAPI && err != nil {
 			golog.Error(err)
 		}
 		if err == nil {
@@ -90,6 +94,7 @@ func (np *NgrokProvider) CreateTunnel(t *tunnelProvider.Tunnel) error {
 	return nil
 }
 
+//CloseTunnel it closes open tunnels
 func (np *NgrokProvider) CloseTunnel(t *tunnelProvider.Tunnel) error {
 	for attempt := uint(0); attempt <= maxRetries; attempt++ {
 		err := func() error {
@@ -118,7 +123,7 @@ func (np *NgrokProvider) CloseTunnel(t *tunnelProvider.Tunnel) error {
 			golog.Info("Tunnel " + t.Name + " successfully closed")
 			return nil
 		}()
-		if np.Client.LogApi && err != nil {
+		if np.Client.LogAPI && err != nil {
 			golog.Error(err)
 		}
 		if err == nil {
@@ -128,10 +133,12 @@ func (np *NgrokProvider) CloseTunnel(t *tunnelProvider.Tunnel) error {
 	return nil
 }
 
+//End close the running NGROK Server
 func (np *NgrokProvider) End() error {
 	return np.Client.runningCmd.Process.Kill()
 }
 
+// OpenManyTunnels open multiple tunnels simultaniously
 func (np *NgrokProvider) OpenManyTunnels(tunnels []*tunnelProvider.Tunnel) error {
 	wg := &sync.WaitGroup{}
 	// api request post to /api/tunnels
@@ -153,6 +160,7 @@ func (np *NgrokProvider) OpenManyTunnels(tunnels []*tunnelProvider.Tunnel) error
 	return nil
 }
 
+// CloseManyTunnels many tunnels
 func (np *NgrokProvider) CloseManyTunnels(tunnels []*tunnelProvider.Tunnel) error {
 	wg := &sync.WaitGroup{}
 	//	api request delete to /api/tunnels/:Name
