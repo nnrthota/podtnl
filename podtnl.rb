@@ -1,14 +1,10 @@
-require "language/go"
-
 class Podtnl < Formula
-  desc "Expose your pod to Online easily from any kubernetes clusters without creating a kubernetes service."
+  desc "Expose your pod to Online from any kubernetes clusters"
   homepage "https://podtnl.sh"
   url "https://github.com/narendranathreddythota/podtnl/archive/1.0.tar.gz"
-  sha256 "8f06c335467622419b643ee4f5df54513256c086162f0a83bd7004deae715b6e"
-  revision 1
+  sha256 "65f934bff1199e3e454678a7af776578ccaff82bf3455fcccbc84f1dd62b530a"
   head "https://github.com/narendranathreddythota/podtnl.git"
   depends_on "go" => :build
-
   def install
     ENV["GOPATH"] = buildpath
     path = buildpath/"src/github.com/narendranathreddythota/podtnl"
@@ -17,9 +13,7 @@ class Podtnl < Formula
       system "go", "build", "-o", "#{bin}/podtnl"
     end
   end
-
   test do
     assert_match version.to_s, shell_output("#{bin}/podtnl", "-v")
   end
-
-end 
+end

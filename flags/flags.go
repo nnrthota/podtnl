@@ -33,6 +33,9 @@ var auth bool
 var ns string
 var podport int
 
+// AppVersion 1.0
+const AppVersion = "1.0"
+
 // MyUsage Special instructions
 func MyUsage() {
 	fmt.Printf(" Expose your pod to Online easily from any kubernetes clusters without creating a kubernetes service.\n")
@@ -52,6 +55,7 @@ func MyUsage() {
 }
 
 func init() {
+	version := flag.Bool("v", false, "prints current podtnl version")
 	flag.StringVar(&provider, "provider", "ngrok", "Input Tunnel Provider")
 	flag.StringVar(&providerPath, "providerPath", "/usr/local/bin/ngrok", "Please Provide Tunnel Provider Path")
 	flag.StringVar(&podname, "podname", "", "Please Provide Pod Name")
@@ -60,6 +64,11 @@ func init() {
 	flag.IntVar(&podport, "podport", 0, "Please Provide Pod Port")
 	flag.BoolVar(&auth, "auth", true, "Need to secure the exposed pod with Basic Auth?")
 	flag.Parse()
+	flag.Parse()
+	if *version {
+		fmt.Println(AppVersion)
+		os.Exit(0)
+	}
 }
 
 func veryFlagInput() {
