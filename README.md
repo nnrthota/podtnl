@@ -22,7 +22,7 @@ Access Pod Online using Podtnl
 > - Tunnel
 
 ## Installation
-**Podtnl** is available in [homebrew](http://brew.sh/)
+**Podtnl** is available in [homebrew](http://brew.sh/) 
 ```shell
 $ brew tap narendranathreddythota/podtnl
 $ brew install podtnl
@@ -34,12 +34,11 @@ $ cp podtnl /var/local/bin
 ```
 
 ## Tunnel Providers
-**Podtnl** is built in a way that it can support any tunnel provider
+**Podtnl** is built in a way that it can support any tunnel provider. 
+Currently **Podtnl** support only Ngrok as tunnel provider
 ### Ngrok
-```shell 
-  Currently Podtnl support only Ngrok as tunnel provider
-  Install Ngrok from their [website](https://ngrok.com/)
-```
+  - Install Ngrok from their [website](https://dashboard.ngrok.com/get-started/setup) 
+  
 ## Usage:
 #### Available Flage
 ```shell
