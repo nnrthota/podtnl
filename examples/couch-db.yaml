@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: couchdb0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: couchdb0
+  template:
+    metadata:
+      labels:
+        app: couchdb0
+        tier: database
+        track: stable
+    spec:
+      #nodeSelector:
+        #id: peer
+      containers:
+        - name: couchdb0
+          image: "couchdb:latest"
+          env:
+            - name: COUCHDB_USER
+              value: "user"
+            - name: COUCHDB_PASSWORD
+              value: "pass"
+          ports:
+            - name: couchdb0-port
+              containerPort: 5984

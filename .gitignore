@@ -1,0 +1,55 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+bpaas-api-gateway
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# Environment files
+*.env
+
+# git mergetool
+*.orig
+
+# OSX trash
+.DS_Store
+._*
+
+# Vscode files
+.vscode
+
+# Emacs save files
+*~
+\#*\#
+.\#*
+
+# Vim-related files
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# make-related metadata
+/.make/
+
+# Temporary files
+/temp/*
+
+# Generated code
+proto/*/*.go
+kubernetes/*-generated.yml
+podtnl
+run.sh
+nats-dev-certs
+run.sh.old
