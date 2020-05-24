@@ -23,11 +23,13 @@ Access Pod Online using Podtnl
 
 ## Installation
 Download Binary  
-```shell
-$ https://github.com/narendranathreddythota/podtnl/releases/download/1.0/podtnl
-```
+
+> https://github.com/narendranathreddythota/podtnl/releases/download/1.0/podtnl
+
 **Build from Source**
 ```shell
+$ git clone https://github.com/narendranathreddythota/podtnl
+$ cd podtnl
 $ go build 
 $ cp podtnl /var/local/bin
 ```
