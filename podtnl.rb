@@ -2,7 +2,7 @@ class Podtnl < Formula
   desc "Expose your pod to Online from any kubernetes clusters"
   homepage "https://podtnl.sh"
   url "https://github.com/narendranathreddythota/podtnl/archive/1.0.tar.gz"
-  sha256 "65f934bff1199e3e454678a7af776578ccaff82bf3455fcccbc84f1dd62b530a"
+  sha256 "e94d28fae97ee38ee3f4b3a502df5c510280eb49868aeb2cad40a7266158c0cc"
   head "https://github.com/narendranathreddythota/podtnl.git"
   depends_on "go" => :build
   def install
@@ -14,6 +14,6 @@ class Podtnl < Formula
     end
   end
   test do
-    assert_match version.to_s, shell_output("#{bin}/podtnl", "-v")
+    system "#{bin}/podtnl", "-v"
   end
 end

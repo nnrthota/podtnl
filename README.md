@@ -33,6 +33,13 @@ $ go build
 $ cp podtnl /var/local/bin
 ```
 
+## Tunnel Providers
+**Podtnl** is built in a way that it can support any tunnel provider
+### Ngrok
+```shell 
+  Currently Podtnl support only Ngrok as tunnel provider
+  Install Ngrok from their [website](https://ngrok.com/)
+```
 ## Usage:
 #### Available Flage
 ```shell
