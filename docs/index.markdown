@@ -31,9 +31,15 @@ Access Pod Online using Podtnl
 > - Tunnel
 
 ## Installation
-Download Binary  
-
-> https://github.com/narendranathreddythota/podtnl/releases/download/1.0/podtnl
+Podtnl is available in [homebrew](http://brew.sh/)
+```shell
+$ brew tap narendranathreddythota/podtnl
+$ brew install podtnl
+```
+Download Binary
+```shell
+https://github.com/narendranathreddythota/podtnl/releases/download/1.0/podtnl
+```
 
 **Build from Source**
 ```shell
