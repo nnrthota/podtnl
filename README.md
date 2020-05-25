@@ -39,7 +39,7 @@ $ cp podtnl /var/local/bin
 Currently **Podtnl** support only Ngrok as tunnel provider
 ### Ngrok
   - Install Ngrok from their [website](https://dashboard.ngrok.com/get-started/setup) 
-  
+
 ## Usage:
 #### Available Flage
 ```shell
@@ -105,6 +105,16 @@ Expected Output:
         Please Provide Tunnel Provider Path (default "/usr/local/bin/ngrok")
 ```
 ## Note:
+
+Please switch context to the target cluster which is running in Minikube or Kind or AKS or PKS or etc
+```shell
+$ kubectl config use-context {cluster_name} 
+```
+`Kubectl get all` should give the following output
+```shell
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   179d
+```
 If the following works perfectly 
 
 ```shell
