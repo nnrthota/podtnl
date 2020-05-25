@@ -41,7 +41,7 @@ Currently **Podtnl** support only Ngrok as tunnel provider
   - Install Ngrok from their [website](https://dashboard.ngrok.com/get-started/setup) 
 
 ## Usage:
-#### Available Flage
+### Available Flags
 ```shell
   version        : Output Podtnl Version
   provider       : Input Tunnel Provider
@@ -51,38 +51,6 @@ Currently **Podtnl** support only Ngrok as tunnel provider
   namespace      : Input Namespace
   podport        : Input Pod Port
   auth           : Need Authentication ? Applicable for HTTP
-```
-#### HTTP
-```shell
-$ podtnl -provider ngrok -podname couchdb0-64d95cccc5-5phqz -podport 5984
-
-Expected Output:
-[INFO] ...Tunnel provider ngrok
-[INFO] NGROK is Ready
-[INFO] Username: QoElOkoMmFv45f8kNKOCSVzyJz9zfakb
-[INFO] Password: jApdHSdVLdpXYCkVgYmzYzSD70j9tipdYvgWLhrZ1mdHGvcngdHiHpdvJfQjAins
-Forwarding from 127.0.0.1:5984 -> 5984
-Forwarding from [::1]:5984 -> 5984
-[INFO] mytunnel is created and Live: -> https://fa8df289.ngrok.io
-Handling connection for 5984
-Handling connection for 5984
-Handling connection for 5984
-Handling connection for 5984
-
-^C[WARN] Shutting down all open tunnels..
-[DBUG] Closing tunnel in https://fa8df289.ngrok.io
-```
-#### TCP
-```shell
-$ podtnl -provider ngrok -podname orderer1-7cb4b7565-nv95k -podport 7050 -protocol tcp
-
-Expected Output:
-[INFO] ...Tunnel provider ngrok
-[INFO] NGROK is Ready
-[INFO] mytunnel is created and Live: -> tcp://0.tcp.ngrok.io:10467
-
-^C[WARN] Shutting down all open tunnels..
-[DBUG] Closing tunnel in tcp://0.tcp.ngrok.io:10467
 ```
 ```shell
 ➜  ~ podtnl --help
@@ -103,6 +71,38 @@ Expected Output:
         Input Tunnel Provider (default "ngrok")
   -providerPath string
         Please Provide Tunnel Provider Path (default "/usr/local/bin/ngrok")
+```
+### HTTP
+```shell
+$ podtnl -provider ngrok -podname couchdb0-64d95cccc5-5phqz -podport 5984
+
+Expected Output:
+[INFO] ...Tunnel provider ngrok
+[INFO] NGROK is Ready
+[INFO] Username: QoElOkoMmFv45f8kNKOCSVzyJz9zfakb
+[INFO] Password: jApdHSdVLdpXYCkVgYmzYzSD70j9tipdYvgWLhrZ1mdHGvcngdHiHpdvJfQjAins
+Forwarding from 127.0.0.1:5984 -> 5984
+Forwarding from [::1]:5984 -> 5984
+[INFO] mytunnel is created and Live: -> https://fa8df289.ngrok.io
+Handling connection for 5984
+Handling connection for 5984
+Handling connection for 5984
+Handling connection for 5984
+
+^C[WARN] Shutting down all open tunnels..
+[DBUG] Closing tunnel in https://fa8df289.ngrok.io
+```
+### TCP
+```shell
+$ podtnl -provider ngrok -podname orderer1-7cb4b7565-nv95k -podport 7050 -protocol tcp
+
+Expected Output:
+[INFO] ...Tunnel provider ngrok
+[INFO] NGROK is Ready
+[INFO] mytunnel is created and Live: -> tcp://0.tcp.ngrok.io:10467
+
+^C[WARN] Shutting down all open tunnels..
+[DBUG] Closing tunnel in tcp://0.tcp.ngrok.io:10467
 ```
 ## Note:
 
