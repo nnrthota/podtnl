@@ -5,7 +5,6 @@
 layout: home
 ---
 <img align="center" width="1250" src="./images/tunnel.png">
-## Kubernetes Port Forward to access application running in the Pod
 <iframe src="https://ghbtns.com/github-btn.html?user=narendranathreddythota&repo=podtnl&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
 <iframe src="https://ghbtns.com/github-btn.html?user=narendranathreddythota&repo=podtnl&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
 <iframe src="https://ghbtns.com/github-btn.html?user=narendranathreddythota&type=follow&count=true&size=large" frameborder="0" scrolling="0" width="350" height="30" title="GitHub"></iframe>
