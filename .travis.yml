@@ -1,0 +1,28 @@
+language: go
+
+go:
+  - 1.13.x
+
+branches:
+  only:
+  - master
+  - dev
+
+env:
+  - GO111MODULE=on
+
+install: true
+
+os:
+  - linux
+
+services:
+  - docker
+
+before_install:
+  - echo -e "machine github.com\n  login $CI_USER\n  password $CI_USER_TOKEN\n" > ~/.netrc
+  - chmod 600 ~/.netrc
+
+script:
+  - make build
+  - make test
