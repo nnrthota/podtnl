@@ -65,7 +65,7 @@ func getForwarder(ports []string, stopChan chan struct{}, dialer httpstream.Dial
 		os.Stderr,
 	)
 	if err != nil {
-		golog.Error("error while preparing dialer: %s", err)
+		golog.Error("error while preparing dialer: ", err)
 		return nil, err
 	}
 	return forwarder, nil
@@ -106,7 +106,7 @@ func PortForward(config *rest.Config, stopChan chan struct{}, podName string, se
 	}
 
 	if len(forwardedPorts) != 1 {
-		golog.Error("expected 1 port, got %d", len(ports))
+		golog.Error("expected 1 port, got ", len(ports))
 		return errors.New("Error in the port forward")
 	}
 
