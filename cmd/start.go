@@ -44,9 +44,6 @@ func runPortForward(podName string, exposedPort int) {
 func init() {
 	golog.SetTimeFormat("")
 	golog.SetLevel("debug")
-	podname := sysFlags.GetPodName()
-	podport := sysFlags.GetPodPort()
-	go runPortForward(podname, podport)
 }
 
 func openTunnels(provider providers.ITunnelProvider) []*providers.Tunnel {
@@ -73,6 +70,11 @@ func openTunnels(provider providers.ITunnelProvider) []*providers.Tunnel {
 
 //Start the podtnl
 func Start() error {
+	sysFlags.InitFlags()
+	podname := sysFlags.GetPodName()
+	podport := sysFlags.GetPodPort()
+	go runPortForward(podname, podport)
+
 	provider := tunnel.GetTunnelProvider()
 
 	defer provider.End()

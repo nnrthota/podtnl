@@ -54,7 +54,12 @@ func MyUsage() {
 	flag.PrintDefaults()
 }
 
-func init() {
+//InitFlags init all flags
+func InitFlags() {
+	initEnvFlag()
+}
+
+func initEnvFlag() {
 	version := flag.Bool("v", false, "prints current podtnl version")
 	flag.StringVar(&provider, "provider", "ngrok", "Input Tunnel Provider")
 	flag.StringVar(&providerPath, "providerPath", "/usr/local/bin/ngrok", "Please Provide Tunnel Provider Path")
@@ -63,7 +68,6 @@ func init() {
 	flag.StringVar(&ns, "namespace", "default", " Please Provide Namespace where pod is running..")
 	flag.IntVar(&podport, "podport", 0, "Please Provide Pod Port")
 	flag.BoolVar(&auth, "auth", true, "Need to secure the exposed pod with Basic Auth?")
-	flag.Parse()
 	flag.Parse()
 	if *version {
 		fmt.Println(AppVersion)
