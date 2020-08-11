@@ -14,7 +14,7 @@ Access Pod Online using Podtnl
 
  - Clusters including minikube, kind, PKS, AKS, GKE, DK, etc
 
- - No need to worry about accessing your application during development, forgot about the following buzz words 
+ - No need to worry about accessing your application during development, forget about the following buzz words 
    [ingress, controller, loadbalancer, Public IP, etc]
 
 **Podtnl** uses two concepts: 
@@ -80,7 +80,7 @@ Currently **Podtnl** support only Ngrok as tunnel provider
 ```
 ### HTTP
 ```shell
-$ podtnl -provider ngrok -podname couchdb0-64d95cccc5-5phqz -podport 5984
+$ podtnl -provider ngrok -podname couchdb0-64d95cccc5-5phqz -podport 5984 -auth=false
 
 Expected Output:
 [INFO] ...Tunnel provider ngrok
@@ -100,7 +100,7 @@ Handling connection for 5984
 ```
 ### TCP
 ```shell
-$ podtnl -provider ngrok -podname orderer1-7cb4b7565-nv95k -podport 7050 -protocol tcp
+$ podtnl -provider ngrok -podname orderer1-7cb4b7565-nv95k -podport 7050 -protocol tcp 
 
 Expected Output:
 [INFO] ...Tunnel provider ngrok
