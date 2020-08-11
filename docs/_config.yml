@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Podtnl By Narendranath Reddy
+title: Podtnl 
 email: nnrthota@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
  Kubernetes Port Forward is used to access application running in the Pod and Tunnel is used to expose local port to online. Podtnl: A Powerful CLI that makes your pod available to online without exposing a k8 service it uses both concepts port-forward and tunneling.
