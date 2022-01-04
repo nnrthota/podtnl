@@ -1,7 +1,7 @@
 
 Access Pod Online using Podtnl
 ==========
-[![Build Status](https://travis-ci.com/narendranathreddythota/podtnl.svg?branch=master)](https://travis-ci.com/narendranathreddythota/podtnl)
+[![Build Status](https://travis-ci.com/nnrthota/podtnl.svg?branch=master)](https://travis-ci.com/narendranathreddythota/podtnl)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Go Report Card](https://goreportcard.com/badge/github.com/narendranathreddythota/podtnl)](https://goreportcard.com/report/github.com/narendranathreddythota/podtnl)
 [![Release](https://img.shields.io/badge/release-1.0-brightgreen.svg)](https://github.com/narendranathreddythota/podtnl/releases/tag/1.0)
